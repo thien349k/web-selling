@@ -59,9 +59,9 @@
                       <input class="can" class="can" type="text" value="" name="price_sale" placeholder="Giá giảm" />
                       <p class="text-danger"></p>         
                     </div>
-                    <textarea class="editor_des" name="description" id="" placeholder="Đặc điểm nổi bật"></textarea>
+                    <textarea class="editor_des" name="description" id="editor" placeholder="Đặc điểm nổi bật"></textarea>
                       <p class="text-danger">.</p> 
-                    <textarea class="editor_content" name="content" id="" placeholder="Mô tả sản phẩm"></textarea>
+                    <textarea class="editor_content" name="content" id="editor" placeholder="Mô tả sản phẩm"></textarea>
                       <p class="text-danger"></p>
                     <button type="submit" class="main-btn">Thêm sản phẩm</button>
                   </div>

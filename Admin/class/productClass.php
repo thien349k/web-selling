@@ -2,6 +2,7 @@
 include 'lib\database.php';
 
 
+
 class productClass {
   public $Database;
   public function __construct() {

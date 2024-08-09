@@ -1,5 +1,6 @@
 <?php
 include 'config\config.php';
+
 class Database {
   public $servername = servername;
   public $username = username;
