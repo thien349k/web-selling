@@ -1,11 +1,10 @@
 <?php 
-    include ('parts/header.php'); 
-  
+  include ('parts/header.php'); 
+
 ?>
-
 <?php
-    $show_product = $productClass -> select_product_all();
-
+  $show_product = $productClass -> select_product_all();
+   
 ?>
 
     <!-- slide -->
@@ -38,19 +37,16 @@
             <?php
                 while ($row = $show_product->fetch_assoc()) {
             ?>
-            <div class="best-seller-items"">
-                
-                <a href="detail.php?id=<?php echo $row['id'];?>"><img src="<?php echo $row['image'];?>" alt=""></a>
-                <p><?php echo $row['name'];?></p>
-
-                <span><?php echo $row['material'];?></span>
-                <div class="price"> 
-                    <p><?php echo number_format($row['price_sale']);?><sup>đ</sup></p><span><?php echo number_format($row['price_normal']);?><sup>đ</sup></span>
-                </div>
-                
-            </div> 
+              <div class="best-seller-items">
+                  <img src="<?php echo $row['image'];?>" alt="">
+                  <p><?php echo $row['name'];?></p>
+                  <span><?php echo $row['material'];?></span>
+                  <div class="price">
+                      <p><?php echo $row['price_sale'];?><sup>đ</sup></p><span>149.000<sup>đ</sup></span>
+                  </div>
+              </div> 
             <?php
-                }
+              }
             ?>
             
             </div>

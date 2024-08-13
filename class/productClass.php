@@ -1,7 +1,5 @@
 <?php
-include 'lib\database.php';
-
-
+include '..\lib\database.php';
 
 class productClass {
   public $Database;

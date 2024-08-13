@@ -1,6 +1,6 @@
 <?php 
   include 'parts/header.php';
-  include 'class\productClass.php';
+  include '../class/productClass.php';
   $productClass = new productClass;
 ?>
 <?php

@@ -1,5 +1,5 @@
 <?php
-include 'config\config.php';
+include '..\config\config.php';
 
 class Database {
   public $servername = servername;
@@ -41,5 +41,11 @@ class Database {
     $result = $this ->conn -> query($query);
     return $result;
   }
+
+  // cart
+  // public function cart($query){
+  //   $result = $this ->conn -> query($query);
+  //   return $result;
+  // }
 }
 ?>
