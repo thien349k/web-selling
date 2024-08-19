@@ -2,10 +2,8 @@
     include ('parts/header.php'); 
   
 ?>
-
 <?php
     $show_product = $productClass -> select_product_all();
-
 ?>
 
     <!-- slide -->

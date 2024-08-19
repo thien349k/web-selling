@@ -47,8 +47,7 @@
                 <div class="admin-content-main-content-product-add">
                   <div class="admin-content-main-content-left">
                     <div class="admin-content-main-content-two-input">
-                      <input type="text" value="" name="name" placeholder="Tên sản phẩm" />
-                      
+                      <input type="text" value="" name="name" require placeholder="Tên sản phẩm" />
                       <p class="text-danger"></p>
                       <input class="can" class="can" type="text" value="" name="material" placeholder="Chất liệu" />
                       <p class="text-danger">.</p>

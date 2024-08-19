@@ -72,9 +72,9 @@
         
     </section>
     <section class="best-seller">
-    <div class="container1">
-        <div class="product-image">
-        <img src="<?php echo $get_product['image']?>" width="100px" alt="">
+        <div class="container1">
+            <div class="product-image">
+            <img src="<?php echo $get_product['image']?>" width="100px" alt="">
         </div>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="product-info">

@@ -1,0 +1,515 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Questrial&display=swap");
+/* Nhập font từ Google Fonts */
+
+/* Đặt thuộc tính mặc định */
+:root {
+  --header-height: 70px;
+  --main-background: #ffffff;
+  --main-trans: all 0.3s ease;
+  --main-color: rgba(131, 131, 131, 0.596);
+  --main-font: "Questrial", sans-serif;
+  --main-font-weight: 500;
+}
+
+/* Định dạng tất cả phần tử trong trang */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font);
+}
+
+li {
+  list-style: none; /* Bỏ dấu chấm đầu dòng */
+}
+
+input {
+  outline: none; /* Bỏ viền khi focus */
+}
+
+a {
+  text-decoration: none; /* Bỏ gạch chân */
+  color: unset; /* Giữ nguyên màu chữ */
+}
+
+.row-flex {
+  display: flex;
+  padding: 0 2.5%;
+  justify-content: space-between; /* Căn đều khoảng cách giữa các phần tử */
+}
+
+.row-grid {
+  display: grid;
+  justify-content: space-between; /* Căn đều khoảng cách giữa các phần tử */
+}
+
+.heading-text {
+  font-weight: var(--main-font-weight);
+  padding: 24px 24px;
+  position: relative;
+}
+
+.heading-text::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 2px;
+  height: 50%;
+  left: 0;
+  top: 50%;
+  background-color: var(--main-background);
+  transform: translateY(-50%);
+}
+
+.heading-text::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 125px;
+  height: 3px;
+  left: 0;
+  bottom: 5px;
+  top: 80%;
+  background-color: var(--main-background);
+  transform: translateY(-50%);
+}
+.main-h2 {
+  font-weight: var(--main-font-weight);
+  margin: 12px 0;
+  font-size: 20px;
+}
+
+/* Định dạng header */
+.header {
+  padding: 10px 16px;
+  background-color: #ffffff;
+  color: #000000;
+  top: 0;
+  border-bottom: 0.15px solid #cbc3c363;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.header .row-flex {
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.header-logo img {
+  width: 110px;
+  cursor: pointer; /* Con trỏ chuột dạng pointer */
+}
+
+.header-nav ul {
+  display: flex;
+}
+
+.header-nav ul li a {
+  line-height: 20px;
+  padding: 0 10px;
+  font-size: large;
+  text-align: center;
+  transition: var(--main-trans);
+}
+
+.header-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-search i {
+  font-size: large;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.header-search input {
+  height: 30px;
+  border: 1px solid black;
+  padding-left: 20px;
+  border-radius: 15px;
+}
+
+.header-cart i {
+  display: flex;
+  font-size: large;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-cart i::after {
+  content: attr(number);
+  position: absolute;
+  display: block;
+  width: 13px;
+  height: 13px;
+  right: -5px;
+  top: -5px;
+  border-radius: 50%;
+  color: whitesmoke;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: small;
+  background-color: #9a1717;
+}
+
+header.active {
+  background-color: var(--main-background);
+}
+
+/* gio hang */
+.cart > .container {
+  position: relative;
+  margin-top: 80px;
+  padding: 20px 2.5%;
+  font-size: larger;
+  background-color: #f9f9f94a;
+  display: flex;
+  flex-direction: column;
+}
+.cart .row-grid {
+  grid-template-columns: 50% 50%;
+  column-gap: 15px;
+}
+.cart-left {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.cart table,
+th,
+td {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.cart table thead tr th {
+  font-weight: var(--main-font-weight);
+}
+.cart table th {
+  background-color: #2625257c;
+  color: white;
+}
+.cart table {
+  width: 150%;
+  border-collapse: none;
+}
+
+.cart table tr td {
+  text-align: left;
+}
+.cart table tbody tr td:nth-child(4) {
+  cursor: pointer;
+}
+/* Container for the form */
+.cart-right {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.cart-right input {
+  width: 60%;
+}
+
+/* Style for input fields */
+.cart-right input[type="text"] {
+  width: 49%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.cart-right-input-address {
+  width: 99%;
+}
+.cart-right-input-note {
+  width: 99%;
+}
+.cart-right input[type="email"] {
+  width: 99%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Style for select fields */
+.cart-right select {
+  width: 32%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Style for buttons */
+.cart-right .main-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-right .main-button:hover {
+  background-color: #333;
+}
+.best-seller .row-grid-best-seller {
+  padding: 0 2.5%;
+  grid-template-columns: repeat(4, 23%);
+  column-gap: 2%;
+}
+
+.best-seller-items img {
+  width: 100%;
+}
+.best-seller-items {
+  cursor: pointer;
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  transition: var(--main-trans);
+}
+
+.best-seller-items > p {
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.best-seller > span {
+  font-weight: 300;
+  font-size: small;
+}
+.best-seller-items:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.price {
+  margin-top: 6px;
+}
+
+.best-seller-items .price p {
+  font-weight: 400;
+}
+
+.best-seller-items .price span {
+  font-weight: 300;
+  font-size: small;
+  text-decoration: line-through;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: auto; /* 15% from the top and centered */
+  padding: 30px;
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+  max-width: 800px; /* Maximum width */
+  text-align: center;
+}
+.modal-content > button {
+  background-color: #000;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Định dạng footer */
+footer {
+  padding: 15px 15px 3px;
+  background-color: gray;
+  color: white;
+  position: relative;
+  clear: both;
+}
+
+.footer-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-items p:first-child {
+  font-weight: bolder;
+  margin-bottom: 17px;
+}
+
+.footer-items p {
+  font-weight: lighter;
+  line-height: 22px;
+  text-align: center;
+}
+
+footer .row-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+/* Định dạng responsive */
+.header-logo-mobile,
+.menu-mobile {
+  display: none;
+}
+
+.header-search-cart-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .row-grid .row-flex {
+    padding: 0 12px;
+  }
+  .header-nav .row-flex {
+    height: 70px;
+  }
+
+  .header-logo-mobile,
+  .menu-mobile {
+    display: block;
+  }
+
+  .header-nav ul li a {
+    font-size: medium;
+    line-height: 20px;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: -100%;
+    left: 0px;
+    width: 100vw;
+    background-color: black;
+    color: var(--main-color);
+    transition: var(--main-trans);
+  }
+
+  .header-nav ul {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .header-nav.active {
+    top: calc(var(--header-height));
+  }
+
+  .header-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-search i {
+    font-size: large;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .header-search-input {
+    display: none; /* Ẩn input ban đầu */
+    border: 1px solid black;
+    padding-left: 20px;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  .header-search-input.active {
+    display: block;
+  }
+
+  .product-list .row-grid-product {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2%;
+  }
+
+  .collection .row-grid-collection {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2%;
+  }
+
+  /* Định dạng footer */
+  footer .row-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Định dạng responsive cho các phần sản phẩm và bộ sưu tập */
+@media only screen and (max-width: 768px) {
+  .row-flex {
+    padding: auto;
+  }
+
+  .header-logo-mobile,
+  .menu-mobile {
+    display: block;
+  }
+
+  .header-nav ul li a {
+    font-size: medium;
+    line-height: 20px;
+  }
+
+  .header-nav ul {
+    padding: 20px 0;
+  }
+
+  .header-logo {
+    display: none;
+  }
+
+  .header-logo-mobile img {
+    width: 110px;
+  }
+
+  .product-list .row-grid-product {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collection .row-grid-collection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  footer .row-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

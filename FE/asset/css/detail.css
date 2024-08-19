@@ -1,0 +1,75 @@
+/* Chỉ áp dụng CSS cho phần main */
+main {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.product-detail {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.product-images {
+  display: flex;
+  width: 50%;
+}
+
+#main-image {
+  width: 50%;
+  height: auto;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.thumbnail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.thumbnail-images img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.product-info {
+  width: 45%;
+}
+
+.product-info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  margin-bottom: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.discounted-price {
+  color: red;
+  font-weight: bold;
+}
+
+.add-to-cart {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-to-cart:hover {
+  background-color: #218838;
+}
