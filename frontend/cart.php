@@ -137,14 +137,12 @@ h1 {
       
       <?php
         $s=0;
-        $i=0;
         if($get_product_to_cart){
           while ($result = $get_product_to_cart -> fetch_assoc()) {
             $i++;
         
       ?>
           <div class="cart-item">
-            <span class="item-number"><?php echo $i;?></span>
             <img src="<?php echo $result['image'];?>" alt="Product Image" class="item-image">
             <div class="item-details">
                 <h3><?php echo $result['name'];?></h3>

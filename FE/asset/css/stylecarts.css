@@ -163,6 +163,9 @@ header.active {
 }
 
 /* gio hang */
+/* .cart .confirm{
+    display: none;
+} */
 .cart > .container {
   position: relative;
   margin-top: 80px;
@@ -173,14 +176,19 @@ header.active {
   flex-direction: column;
 }
 .cart .row-grid {
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 100%;
   column-gap: 15px;
 }
 .cart-left {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.cart td.anh {
+  width: 20%;
+  padding: auto;
 }
 .cart table,
 th,
@@ -188,7 +196,13 @@ td {
   border: 1px solid #ddd;
   text-align: center;
 }
+.cart .button-control {
+  padding: 60px 90px;
+  text-align: center;
+  flex-direction: column;
+}
 .cart table thead tr th {
+  text-align: center;
   font-weight: var(--main-font-weight);
 }
 .cart table th {
@@ -196,7 +210,8 @@ td {
   color: white;
 }
 .cart table {
-  width: 150%;
+  height: 100px;
+  width: 100%;
   border-collapse: none;
 }
 
@@ -219,12 +234,21 @@ td {
 
 /* Style for input fields */
 .cart-right input[type="text"] {
-  width: 49%;
+  width: 49.75%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
+}
+.cart-right-input-option {
+  width: 99%;
+}
+.cart-right-input-name {
+  width: 99%;
+}
+.cart-right-input-email {
+  width: 99%;
 }
 .cart-right-input-address {
   width: 99%;
@@ -232,8 +256,10 @@ td {
 .cart-right-input-note {
   width: 99%;
 }
-.cart-right input[type="email"] {
-  width: 99%;
+.cart-right input[type="email"],
+.cart-right input[type="address"],
+.cart-right input[type="note"] {
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
@@ -243,7 +269,7 @@ td {
 
 /* Style for select fields */
 .cart-right select {
-  width: 32%;
+  width: 32.75%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
@@ -263,7 +289,7 @@ td {
   transition: background-color 0.3s ease;
 }
 
-.cart-right .main-button:hover {
+.cart-right .main-button:active {
   background-color: #333;
 }
 .best-seller .row-grid-best-seller {

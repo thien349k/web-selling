@@ -68,9 +68,7 @@
     document.getElementById('main-image').src = element.src;
   }
 </script>
-<?php
-  include('parts/modal.php');
-?>
+
 <!-- footer -->
 <?php
     include ('parts/footer.php');

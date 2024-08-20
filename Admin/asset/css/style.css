@@ -214,11 +214,11 @@ li {
   padding-left: 6px;
 }
 .admin-content-main-content-two-input {
-  display: flex;
   justify-content: space-between;
 }
 .admin-content-main-content-two-input input {
-  width: 43%;
+  width: 90%;
+  margin-bottom: auto;
 }
 .admin-content-main-content-left textarea {
   height: 200px;

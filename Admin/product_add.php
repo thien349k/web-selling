@@ -43,45 +43,83 @@
             </div>
             <div class="admin-content-main-content">
               <!-- noi dung -->
-              <form action="" method="post" enctype="multipart/form-data">
+              <!-- <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="admin-content-main-content-product-add">
                   <div class="admin-content-main-content-left">
                     <div class="admin-content-main-content-two-input">
-                      <input type="text" value="" name="name" require placeholder="Tên sản phẩm" />
+                      <input type="text" value="" name="name" placeholder="Tên sản phẩm" required/>
                       <p class="text-danger"></p>
-                      <input class="can" class="can" type="text" value="" name="material" placeholder="Chất liệu" />
+                      <input class="can" class="can" type="text" value="" name="material" placeholder="Chất liệu" required/>
                       <p class="text-danger">.</p>
                     </div>
                     <div class="admin-content-main-content-two-input">
-                      <input type="text" value="" name="price_normal" placeholder="Giá bán" />
+                      <input type="text" value="" name="price_normal" placeholder="Giá bán" required/>
                       
                       <p class="text-danger">.</p>    
-                      <input class="can" class="can" type="text" value="" name="price_sale" placeholder="Giá giảm" />
+                      <input class="can" class="can" type="text" value="" name="price_sale" placeholder="Giá giảm" required/>
                       <p class="text-danger"></p>         
                     </div>
-                    <textarea class="editor_des" name="description" id="editor" placeholder="Đặc điểm nổi bật"></textarea>
+                    <textarea class="editor_des" name="description" id="editor" placeholder="Đặc điểm nổi bật" required></textarea>
                       <p class="text-danger">.</p> 
-                    <textarea class="editor_content" name="content" id="editor" placeholder="Mô tả sản phẩm"></textarea>
+                    <textarea class="editor_content" name="content" id="editor" placeholder="Mô tả sản phẩm" required></textarea>
                       <p class="text-danger"></p>
                     <button type="submit" class="main-btn">Thêm sản phẩm</button>
                   </div>
                   <div class="admin-content-main-content-right">
                   <div class="admin-content-main-content-right-image">
                     <label for="file">Ảnh Đại Diện</label>
-                    <input id="file" type="file"/>
+                    <input id="file" type="file" required/>
+                    <p class="text-danger" id="error-file"></p>
                     <input type="hidden" value="" name="image" id="input-file-img-hiden">
-                    <p class="text-danger"></p>
                     <div class="image-show" id="input-file-img">
                     </div>
                   </div>
                   <div class="admin-content-main-content-right-images">
                     <label for="files">Ảnh sản phẩm</label>
-                    <input id="files" type="file" name="images" multiple/>
-                    <p class="text-danger"></p>
+                    <input id="files" type="file" name="images[]" multiple required/>
+                    <p class="text-danger" id="error-files"></p>
                     <div class="images-show" id="input-file-imgs"></div>
                   </div>
                 </div>
-              </form>
+              </form> -->
+              <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+  <div class="admin-content-main-content-product-add">
+    <div class="admin-content-main-content-left">
+      <div class="admin-content-main-content-two-input">
+        <input type="text" value="" name="name" placeholder="Tên sản phẩm"  />
+        <p class="text-danger" id="error-name"></p>
+        <input class="can" type="text" value="" name="material" placeholder="Chất liệu"  />
+        <p class="text-danger" id="error-material"></p>
+      </div>
+      <div class="admin-content-main-content-two-input">
+        <input type="text" value="" name="price_normal" placeholder="Giá bán"  />
+        <p class="text-danger" id="error-price-normal"></p>
+        <input class="can" type="text" value="" name="price_sale" placeholder="Giá giảm" />
+        <p class="text-danger" id="error-price-sale"></p>
+      </div>
+      <textarea class="editor_des" name="description" placeholder="Đặc điểm nổi bật" ></textarea>
+      <p class="text-danger" id="error-description"></p>
+      <textarea class="editor_content" name="content" placeholder="Mô tả sản phẩm" ></textarea>
+      <p class="text-danger" id="error-content"></p>
+      <button type="submit" class="main-btn">Thêm sản phẩm</button>
+    </div>
+    <div class="admin-content-main-content-right">
+      <div class="admin-content-main-content-right-image">
+        <label for="file">Ảnh Đại Diện</label>
+        <input id="file" type="file" name="file"  />
+        <p class="text-danger" id="error-file"></p>
+        <input type="hidden" value="" name="image" id="input-file-img-hiden">
+        <div class="image-show" id="input-file-img"></div>
+      </div>
+      <div class="admin-content-main-content-right-images">
+        <label for="files">Ảnh sản phẩm</label>
+        <input id="files" type="file" name="images[]" multiple  />
+        <p class="text-danger" id="error-files"></p>
+        <div class="images-show" id="input-file-imgs"></div>
+      </div>
+    </div>
+  </div>
+</form>
             </div>
           </div>
         </div>
@@ -140,5 +178,67 @@
        })
       })
     </script>
+    <script>
+      function validateForm() {
+  let isValid = true;
+
+  // Clear previous error messages
+  document.querySelectorAll('.text-danger').forEach(function(element) {
+    element.textContent = "";
+  });
+
+  // Validate Name
+  const name = document.querySelector('input[name="name"]').value;
+  if (!name) {
+    document.getElementById('error-name').textContent = "Tên sản phẩm là bắt buộc.";
+    isValid = false;
+  }
+
+  // Validate Material
+  const material = document.querySelector('input[name="material"]').value;
+  if (!material) {
+    document.getElementById('error-material').textContent = "Chất liệu là bắt buộc.";
+    isValid = false;
+  }
+
+  // Validate Price Normal
+  const priceNormal = document.querySelector('input[name="price_normal"]').value;
+  if (!priceNormal) {
+    document.getElementById('error-price-normal').textContent = "Giá bán là bắt buộc.";
+    isValid = false;
+  }
+
+  // Validate Description
+  const description = document.querySelector('textarea[name="description"]').value;
+  if (!description) {
+    document.getElementById('error-description').textContent = "Đặc điểm nổi bật là bắt buộc.";
+    isValid = false;
+  }
+
+  // Validate Content
+  const content = document.querySelector('textarea[name="content"]').value;
+  if (!content) {
+    document.getElementById('error-content').textContent = "Mô tả sản phẩm là bắt buộc.";
+    isValid = false;
+  }
+
+  // Validate File Uploads
+  const file = document.getElementById('file').files.length;
+  if (file === 0) {
+    document.getElementById('error-file').textContent = "Ảnh đại diện là bắt buộc.";
+    isValid = false;
+  }
+
+  const files = document.getElementById('files').files.length;
+  if (files === 0) {
+    document.getElementById('error-files').textContent = "Ảnh sản phẩm là bắt buộc.";
+    isValid = false;
+  }
+
+  return isValid;
+}
+
+    </script>
+    
   </body>
 </html>
