@@ -1,6 +1,8 @@
 <?php
     include('parts/header.php');
 ?>
+<?php
+?>
 <link rel="stylesheet" href="asset/css/style.css">
 <!-- slide -->
      <section class="slider">

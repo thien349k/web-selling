@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../logo/background.jpg") no-repeat center center/cover;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.text-login {
+  font-weight: 600;
+  font-size: 42px;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.login-input {
+  margin: 15px 0;
+}
+
+.custom-input-user,
+.custom-input-email,
+.custom-input-phone,
+.custom-input-address,
+.custom-input-password {
+  position: relative;
+}
+
+.custom-input-user input,
+.custom-input-email input,
+.custom-input-phone input,
+.custom-input-address input,
+.custom-input-password input {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 14px;
+}
+
+.custom-input-user i,
+.custom-input-email i,
+.custom-input-phone i,
+.custom-input-address i,
+.custom-input-password i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.btn-login {
+  width: 100%;
+  margin: 20px 0;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  background: linear-gradient(to right, #af5fbb, #ec66a5);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-login:hover {
+  background: linear-gradient(to right, #ec66a5, #af5fbb);
+}
+
+.forgot-password {
+  font-size: 12px;
+  color: white;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-login .google,
+.social-login .facebook {
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.social-login .google {
+  background-color: #ff3131;
+}
+
+.social-login .facebook {
+  background-color: #0400ff;
+}
+
+.social-login .google:hover,
+.social-login .facebook:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 576px) {
+  .login-container {
+    width: 90%;
+  }
+
+  .text-login {
+    font-size: 36px;
+  }
+
+  .btn-login {
+    font-size: 14px;
+  }
+
+  .social-login .google,
+  .social-login .facebook {
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+  }
+}

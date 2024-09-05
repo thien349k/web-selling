@@ -139,7 +139,7 @@ h1 {
         $s=0;
         if($get_product_to_cart){
           while ($result = $get_product_to_cart -> fetch_assoc()) {
-            $i++;
+            
         
       ?>
           <div class="cart-item">

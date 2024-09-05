@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['dangnhap'])){
+    header("Location: logins.php");
+  }
+?>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />

@@ -12,25 +12,35 @@ class dbcart {
     $this->connect();
   }
 
-  public function connect (){
-    $this ->conn = new mysqli($this ->servername, $this -> username, $this -> password,  $this -> databaseName);
-    // Check connection
-    if ($this ->conn->connect_error) {
-    die("Connection failed: " . $this ->conn->connect_error);
+    public function connect (){
+      $this ->conn = new mysqli($this ->servername, $this -> username, $this -> password,  $this -> databaseName);
+      // Check connection
+      if ($this ->conn->connect_error) {
+      die("Connection failed: " . $this ->conn->connect_error);
+      }
+      // echo "Connected successfully </br>";
     }
-    // echo "Connected successfully </br>";
+    public function insert($query){
+      $result = $this ->conn -> query($query);
+      return $result;
+    }
+    public function select($query){
+      $result = $this ->conn -> query($query);
+      return $result;
+    }
+    public function delete($query){
+      $result = $this ->conn -> query($query);
+      return $result;
+    }
+    public function lastInsertId() {
+      return $this->conn->insert_id;
+    }
+    public function save_cart_ids_to_session() {
+      return $this->conn->insert_id;
+    }
+    public function update($query){
+      $result = $this ->conn -> query($query);
+      return $result;
+    }
   }
-  public function insert($query){
-    $result = $this ->conn -> query($query);
-    return $result;
-  }
-  public function select($query){
-    $result = $this ->conn -> query($query);
-    return $result;
-  }
-  public function delete($query){
-    $result = $this ->conn -> query($query);
-    return $result;
-  }
-}
 ?>

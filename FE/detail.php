@@ -14,6 +14,9 @@
     $add_to_cart = $cart -> add_to_cart($data, $id);
 }
 ?>
+<?php
+  
+?>
 <link rel="stylesheet" href="asset/css/stylepro.css">
 <link rel="stylesheet" href="asset/css/detail.css">
 
@@ -41,13 +44,16 @@
                 <img src="../upload/product-3.jpg" alt="Thumbnail 3" onclick="changeImage(this)">
             </div>
         </div>
+        <?php
+
+?>
         <form action="" method="post" enctype="multipart/form-data">
           <div class="product-info">
               <h1><?php echo $get_product['name'];?></h1>
               <p>Chất liệu: <?php echo $get_product['material']?></p>
               <p>Giá gốc: <span class="original-price"><?php echo number_format($get_product['price_normal']);?> VND</span></p>
               <p>Giá giảm: <span class="discounted-price"><?php echo number_format($get_product['price_sale']);?> VND</span></p>
-              <p>Số lượng: <input type="number" min="1" value="1"></p>
+              <p>Số lượng: <input type="number" name="quantity" min="1" value="1"></p>
               <p>Description: Đây là mô tả chi tiết sản phẩm.</p>
               <p>Content: Thông tin chi tiết về sản phẩm sẽ được cung cấp ở đây.</p>
               <input type="submit" class="add-to-cart" name="submit" value="Thêm vào giỏ hàng"/>

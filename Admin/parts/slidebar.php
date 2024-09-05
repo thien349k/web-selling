@@ -1,3 +1,10 @@
+<?php
+
+  if(isset($_GET['action']) == 'dangxuat'){
+    unset($_SESSION['dangnhap']);
+    header("Location:logins.php");
+  }
+?>
 <div class="admin-sidebar-top">
   <img src="asset/image/TwoT.png" alt="" />
 </div>
@@ -54,5 +61,13 @@
         </div>
       </ul>
     </li>
+
+    <a href="index.php?action=dangxuat">
+        <i class="ri-list-check"></i>
+        Đăng xuất: <?php if(isset($_SESSION['danghap'])){
+          echo $_SESSION['danghap'];
+        }?>
+        <i class="ri-logout-box-r-line"></i>
+      </a>
   </ul>
 </div>
