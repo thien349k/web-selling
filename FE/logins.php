@@ -73,7 +73,7 @@
             </div>
 
             <div class="col-12 text-center mt-3">
-              <span class="text-other-login">Or login with</span>
+              <a class="text-other-login" href="signup.php" text-algin="none"">Sign up</a>
             </div>
 
             <div class="col-12 social-login">

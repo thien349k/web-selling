@@ -39,7 +39,7 @@ a {
 }
 
 .row-grid {
-  display: grid;
+  /* display: grid; */
   justify-content: space-between; /* Căn đều khoảng cách giữa các phần tử */
 }
 
@@ -439,4 +439,98 @@ footer .row-grid {
   footer .row-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+/* Additional styles for test.php */
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: var(--main-trans);
+}
+
+.cart-item img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.item-details p {
+  font-size: 16px;
+  color: #333;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-quantity {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.remove-btn {
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #e60000;
+}
+
+.total {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #333;
+}
+
+.cart-left.row-grid {
+  padding: 0 10px 10%;
+}
+#pay {
+  padding: 6% 2% 5%;
 }

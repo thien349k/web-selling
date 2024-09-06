@@ -1,7 +1,5 @@
 <?php
-    include('parts/header.php');
-
-  
+  include('parts/header.php');
 ?>
 <?php
 
@@ -21,26 +19,28 @@ $cartIds = $_SESSION['cartIds'];
   $get_product_to_cart = $cart -> get_product_to_cart();
 ?>
 
+<link rel="stylesheet" href="asset/css/stylepro.css">
 
-<link rel="stylesheet" href="asset/css/stylecarts.css">
 <main>
-        <section class="cart p-to-top">
-          <div class="container">
-            <div class="row-flex">
-              <div class="cart-items">
-                <p class="heading-text">Giỏ Hàng</p>
-                
-              </div>
-                </div>
-                  <div class="row-grid">
+  <section class="product-list">
+    <div class="container">
+      <div class="row-flex">
+        <div class="heading-items">
+          <p class="heading-text">Chi tiết sản phẩm</p>
+        </div>
+        
+          
+        </div>
+      </div>
+      <div class="row-grid">
                       <div class="cart-left row-grid">
-                          <h2 class="main-h2">Giỏ hàng</h2><br>
+                          <h2 class="main-h2"></h2><br>
                           <?php
                           ?>
                           <section class="best-seller">
                           
                           <div class="containers ">
-                            <h1>Shopping Cart</h1>
+                            <h1>Shopping Cart</h1><br>
                             <div class="cart">
                   
                             <?php
@@ -70,10 +70,16 @@ $cartIds = $_SESSION['cartIds'];
                             }
                             ?>
                             </div>
-                            <div class="total">
-                                <h2>Tổng: <?php echo number_format($s);?><sup>đ</sup></h2>
-                            </div>
-                            <div style="clear: both;"></div>
+                            
+                          </section>
+                          
+                          
+                        </div>
+                        <div id="pay">
+                        <div class="total">
+                              <h2>Tổng: <?php echo number_format($s);?><sup>đ</sup></h2>
+                          </div> <br>
+                        <div style="clear: both;"></div>
                             <?php
                               if(isset($_SESSION['dangnhap'])){
                             ?>
@@ -86,12 +92,14 @@ $cartIds = $_SESSION['cartIds'];
                               }
                             ?>
                           </div>
-                        </section>
-                      </div>
+                        </div>
                   </div>
-            </div>
-        </section>
-    </main>
+    </div>
+  </section>
+</main>
+<!-- Modal Structure -->
+
+<!-- footer -->
 <?php
-    include('parts/footer.php')
+    include ('parts/footer.php');
 ?>

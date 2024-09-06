@@ -38,10 +38,17 @@
     <div class="product-detail">
         <div class="product-images">
             <img id="main-image" src="<?php echo $get_product['image']?>" alt="Sản phẩm chính">
+            <?php
+              $product_array = explode("*", $get_product['images']);
+            ?>
             <div class="thumbnail-images">
-                <img src="../upload/product-1.jpg" alt="Thumbnail 1" onclick="changeImage(this)">
-                <img src="../upload/product-2.jpg" alt="Thumbnail 2" onclick="changeImage(this)">
-                <img src="../upload/product-3.jpg" alt="Thumbnail 3" onclick="changeImage(this)">
+              <?php
+                foreach($product_array as $item){
+              ?>
+                <img src="<?php echo $item;?>" alt="Thumbnail 1" onclick="changeImage(this)">
+              <?php
+                }
+              ?>
             </div>
         </div>
         <?php
