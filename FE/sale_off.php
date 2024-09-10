@@ -28,21 +28,23 @@
       <div class="row-grid">
         <div class="row-grid row-grid-product">
           <?php
-                while ($result = $show_product->fetch_assoc()) {  
-          ?>
-          <div class="product-items">
-            <div class="product-thumb">
-              <a href="detail.php?id=<?php echo $result['id'];?>"><img src="<?php echo $result['image'];?>" alt=""></a>
-              <p><?php echo $result['name'];?></p>
-              <span><?php echo $result['material'];?></span>
-              <div class="price">
-                <p><?php echo number_format($result['price_sale']);?><sup>đ</sup></p>
-                <span><?php echo number_format($result['price_normal']);?><sup>đ</sup></span>
+            while ($result = $show_product->fetch_assoc()) {  
+              if($result['status']==2){
+            ?>
+            <div class="product-items">
+              <div class="product-thumb">
+                <a href="detail.php?id=<?php echo $result['id'];?>"><img src="<?php echo $result['image'];?>" alt=""></a>
+                <p><?php echo $result['name'];?></p>
+                <span><?php echo $result['material'];?></span>
+                <div class="price">
+                  <p><?php echo number_format($result['price_sale']);?><sup>đ</sup></p>
+                  <span><?php echo number_format($result['price_normal']);?><sup>đ</sup></span>
+                </div>
               </div>
-            </div>
           </div>
           <?php
               }
+            }
           ?>
         </div>
       </div>

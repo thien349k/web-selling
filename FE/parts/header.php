@@ -21,9 +21,7 @@
 
 
 ?>
-<?php
-    $cusId = $_SESSION['cusId'];
-?>
+
 
 <?php
     if(isset($_GET['dangxuat'])&&$_GET['dangxuat']==1){
@@ -84,7 +82,7 @@
                         <?php        
                             }else{
                         ?>
-                         <a href="logins.php?dangnhap">Đăng nhap</a>
+                         <a href="logins.php?dangnhap">Đăng nhập</a>
                         <?php
                         }
                         ?>

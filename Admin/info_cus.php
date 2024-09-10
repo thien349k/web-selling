@@ -24,39 +24,12 @@
   $get_info_detail_admin = $cart -> get_info_detail_admin();
 ?>
 <?php
-  if(!isset($_GET['detailId']) || $_GET['detailId'] == NULL){
-  }else{
-    $detailId = $_GET['detailId'];
-    $name = $_GET['name'];
+  if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $cusId = $_GET['cusId'];
-    $date = $_GET['date'];
-    $quantity = $_GET['quantity'];
-    $detailId_for_cus = $detail -> detailId_for_cus($detailId, $name, $cusId, $date, $quantity); 
+    $show_info_cus = $signup -> select_info_all($cusId);
   }
 ?>
 <?php
-  if(!isset($_GET['delId']) || $_GET['delId'] == NULL){
-  }else{
-    $delId = $_GET['delId'];
-    $name = $_GET['name'];
-    $cusId = $_GET['cusId'];
-    $date = $_GET['date'];
-    $quantity = $_GET['quantity'];
-    $del_for_cus = $detail -> del_for_cus($delId, $name, $cusId, $date, $quantity); 
-  }
-?>
-<?php
-
-// Kiểm tra xem có message trong session không
-if (isset($_SESSION['message'])) {
-  $message = $_SESSION['message'];
-  echo "<script type='text/javascript'>
-          alert('$message');
-        </script>";
-
-  // Sau khi hiển thị thông báo, xóa nó khỏi session
-  unset($_SESSION['message']);
-}
 ?>
 
   <body>
@@ -96,49 +69,36 @@ if (isset($_SESSION['message'])) {
                     <tr>
                       <th>ID</th>
                       <th>Tên sản phẩm</th>
-                      <th>Số lượng</th>
-                      <th>Ghi chú</th>
-                      <th>Chi Tiết</th>
-                      <th>Ngày</th>
-                      <th>Trạng Thái</th>
+                      <th>Email</th>
+                      <th>Địa chỉ</th>
+                      <th>Số điện thoại</th>
+                      <th>Quay lại</th>
+
                     </tr>
                 <?php
                   $i = 0;
-                  if($get_info_detail_admin){
-                    while ($result = $get_info_detail_admin -> fetch_assoc()) {
+                  if($show_info_cus){
+                    while ($result = $show_info_cus -> fetch_assoc()) {
                       # code...
                       $i = $i + 1
-              
                 ?>
                     <tbody>
                       <tr>
                         <td><?php echo $i;?></td>
                         <td><?php echo $result['name'];?></td>
-                        <td><?php echo $result['quantity'];?></td>
-                        <td>Giờ cao điểm</td>
-                        <td><a class="edit-class" href="info_cus.php?cusId=<?php echo $result['cusId'];?>">Xem</a></td>
-                        <td><?php echo $result['date'];?></td>
-                        <?php
-                          if($result['status']==1){                
-                        ?>
-                        <td><a href="?detailId=<?php echo $result['detailId'];?>&name=<?php echo $result['name'];?>&cusId=<?php echo $result['cusId'];?>&date=<?php echo $result['date'];?>&quantity=<?php echo $result['quantity'];?>" class="confirm-order">Xác nhận đơn hàng</a></td>
-                        <?php
-                          }elseif ($result['status']==2) {
-                        ?>
-                        <td><a href="" class="confirm-order">gửi hàng</a></td>
-                        <?php
-                          }elseif ($result['status']==3) {
-                        ?>
-                        <td>
-                          <a class="delete-class" href="?delId=<?php echo $result['detailId'];?>&name=<?php echo $result['name'];?>&cusId=<?php echo $result['cusId'];?>&date=<?php echo $result['date'];?>&quantity=<?php echo $result['quantity'];?>">Xóa</a>
-                        </td>
+                        <td><?php echo $result['email'];?></td>
+                        <td><?php echo $result['address'];?></td>
+                        <td><?php echo $result['phone'];?></td>
+                        <td><a href="order_list.php"><i class="ri-arrow-go-back-line"></i></a></td>
+
+
+
                         <?php }?>
                       </tr>
                       
                     </tbody>
                 <?php 
                     }
-                  }
                 ?>
                   </head>
                 </table>

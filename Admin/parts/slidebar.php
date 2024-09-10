@@ -35,7 +35,7 @@
       <ul class="sub-menu">
         <div class="sub-menu-items">
           <li>
-            <a href=""
+            <a href="order_list.php"
               ><i class="ri-arrow-right-s-fill"></i>Danh sách</a
             >
           </li>

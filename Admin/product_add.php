@@ -11,7 +11,36 @@
     $insert_product = $productClass -> insert_product($data);
 }
 ?>
+<style>
 
+.admin-content-main-content-two-input label {
+    font-size: 14px;
+    color: rgb(88, 87, 87);
+    margin-bottom: 5px;
+}
+
+.admin-content-main-content-two-input select {
+  padding: 10px;
+  border: 0px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  outline: none;
+  color: rgb(88, 87, 87);
+  width: 90%;
+
+}
+
+.admin-content-main-content-two-input select:focus {
+  border-color: #666;
+}
+
+.text-danger {
+  font-size: 12px;
+  color: red;
+  margin-top: 5px;
+}
+</style>
   <body>
     <section class="admin">
       <div class="row-grid">
@@ -43,83 +72,52 @@
             </div>
             <div class="admin-content-main-content">
               <!-- noi dung -->
-              <!-- <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+              <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="admin-content-main-content-product-add">
                   <div class="admin-content-main-content-left">
                     <div class="admin-content-main-content-two-input">
-                      <input type="text" value="" name="name" placeholder="Tên sản phẩm" required/>
-                      <p class="text-danger"></p>
-                      <input class="can" class="can" type="text" value="" name="material" placeholder="Chất liệu" required/>
-                      <p class="text-danger">.</p>
+                      <input type="text" value="" name="name" placeholder="Tên sản phẩm"  />
+                      <p class="text-danger" id="error-name"></p>
+                      <input class="can" type="text" value="" name="material" placeholder="Chất liệu"  />
+                      <p class="text-danger" id="error-material"></p>
                     </div>
                     <div class="admin-content-main-content-two-input">
-                      <input type="text" value="" name="price_normal" placeholder="Giá bán" required/>
-                      
-                      <p class="text-danger">.</p>    
-                      <input class="can" class="can" type="text" value="" name="price_sale" placeholder="Giá giảm" required/>
-                      <p class="text-danger"></p>         
+                      <input type="text" value="" name="price_normal" placeholder="Giá bán"  />
+                      <p class="text-danger" id="error-price-normal"></p>
+                      <input class="can" type="text" value="" name="price_sale" placeholder="Giá giảm" />
+                      <p class="text-danger" id="error-price-sale"></p>
                     </div>
-                    <textarea class="editor_des" name="description" id="editor" placeholder="Đặc điểm nổi bật" required></textarea>
-                      <p class="text-danger">.</p> 
-                    <textarea class="editor_content" name="content" id="editor" placeholder="Mô tả sản phẩm" required></textarea>
-                      <p class="text-danger"></p>
+                    <div class="admin-content-main-content-two-input">
+                      <select name="status" id="status" required>
+                        <option value="1">Collection</option>
+                        <option value="2">Sale Off</option>
+                      </select>
+                      <p class="text-danger" id="error-status"></p>
+                    </div>
+                    <textarea class="editor_des" name="description" placeholder="Đặc điểm nổi bật" ></textarea>
+                    <p class="text-danger" id="error-description"></p>
+                    <textarea class="editor_content" name="content" placeholder="Mô tả sản phẩm" ></textarea>
+                    <p class="text-danger" id="error-content"></p>
                     <button type="submit" class="main-btn">Thêm sản phẩm</button>
                   </div>
                   <div class="admin-content-main-content-right">
-                  <div class="admin-content-main-content-right-image">
-                    <label for="file">Ảnh Đại Diện</label>
-                    <input id="file" type="file" required/>
-                    <p class="text-danger" id="error-file"></p>
-                    <input type="hidden" value="" name="image" id="input-file-img-hiden">
-                    <div class="image-show" id="input-file-img">
+                    <div class="admin-content-main-content-right-image">
+                      <label for="file">Ảnh Đại Diện</label>
+                      <input id="file" type="file" name="file"  />
+                      <p class="text-danger" id="error-file"></p>
+                      <input type="hidden" value="" name="image" id="input-file-img-hiden">
+                      <div class="image-show" id="input-file-img"></div>
+                    </div>
+                    <div class="admin-content-main-content-right-images">
+                      <label for="files">Ảnh sản phẩm</label>
+                      <input id="files" type="file" name="images[]" multiple  />
+                      <p class="text-danger" id="error-files"></p>
+                      <div class="images-show" id="input-file-imgs"></div>
                     </div>
                   </div>
-                  <div class="admin-content-main-content-right-images">
-                    <label for="files">Ảnh sản phẩm</label>
-                    <input id="files" type="file" name="images[]" multiple required/>
-                    <p class="text-danger" id="error-files"></p>
-                    <div class="images-show" id="input-file-imgs"></div>
-                  </div>
                 </div>
-              </form> -->
-              <form action="" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-  <div class="admin-content-main-content-product-add">
-    <div class="admin-content-main-content-left">
-      <div class="admin-content-main-content-two-input">
-        <input type="text" value="" name="name" placeholder="Tên sản phẩm"  />
-        <p class="text-danger" id="error-name"></p>
-        <input class="can" type="text" value="" name="material" placeholder="Chất liệu"  />
-        <p class="text-danger" id="error-material"></p>
-      </div>
-      <div class="admin-content-main-content-two-input">
-        <input type="text" value="" name="price_normal" placeholder="Giá bán"  />
-        <p class="text-danger" id="error-price-normal"></p>
-        <input class="can" type="text" value="" name="price_sale" placeholder="Giá giảm" />
-        <p class="text-danger" id="error-price-sale"></p>
-      </div>
-      <textarea class="editor_des" name="description" placeholder="Đặc điểm nổi bật" ></textarea>
-      <p class="text-danger" id="error-description"></p>
-      <textarea class="editor_content" name="content" placeholder="Mô tả sản phẩm" ></textarea>
-      <p class="text-danger" id="error-content"></p>
-      <button type="submit" class="main-btn">Thêm sản phẩm</button>
-    </div>
-    <div class="admin-content-main-content-right">
-      <div class="admin-content-main-content-right-image">
-        <label for="file">Ảnh Đại Diện</label>
-        <input id="file" type="file" name="file"  />
-        <p class="text-danger" id="error-file"></p>
-        <input type="hidden" value="" name="image" id="input-file-img-hiden">
-        <div class="image-show" id="input-file-img"></div>
-      </div>
-      <div class="admin-content-main-content-right-images">
-        <label for="files">Ảnh sản phẩm</label>
-        <input id="files" type="file" name="images[]" multiple  />
-        <p class="text-danger" id="error-files"></p>
-        <div class="images-show" id="input-file-imgs"></div>
-      </div>
-    </div>
-  </div>
-</form>
+              </form>
             </div>
           </div>
         </div>
@@ -221,7 +219,7 @@
     document.getElementById('error-content').textContent = "Mô tả sản phẩm là bắt buộc.";
     isValid = false;
   }
-
+  
   // Validate File Uploads
   const file = document.getElementById('file').files.length;
   if (file === 0) {

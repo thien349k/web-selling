@@ -1,12 +1,15 @@
 <?php
   include('parts/header.php');
 ?>
+
 <?php
   if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = $_GET['id'];
     $get_product = $productClass -> select_product($id);
   }
+  echo $id;
 ?>
+
 <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $id = $_GET['id'];
@@ -19,7 +22,23 @@
 ?>
 <link rel="stylesheet" href="asset/css/stylepro.css">
 <link rel="stylesheet" href="asset/css/detail.css">
-
+<section class="slider">
+        <div class="slide-items">
+            <div class="slide">
+                <img src="asset/logo/BANNER1.png" alt="khong the mo anh">
+            </div>
+            <div class="slide">
+                <img src="asset/logo/BANNER2.png" alt="khong the mo anh">
+            </div>
+            <div class="slide">
+                <img src="asset/logo/BANNER3.png" alt="khong the mo anh">
+            </div>            
+        </div>
+        <div class="slide_arrow">
+            <i class="ri-arrow-left-circle-line"></i>
+            <i class="ri-arrow-right-circle-line"></i>
+        </div>
+    </section>
 
 <main>
   <section class="product-list">

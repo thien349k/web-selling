@@ -51,12 +51,14 @@
                       <th>Tùy chỉnh</th>
                     </tr>
                     <?php
+                      $i = 0;
                       if($selectAll -> num_rows > 0) {
                         while ($result = $selectAll -> fetch_assoc()) {
+                          $i++;
                     ?>
                     <tbody>
                       <tr>
-                        <td><?php echo $result['id']?></td>
+                        <td><?php echo $i;?></td>
                         <td>
                           <img
                             style="width: 70px"

@@ -14,12 +14,14 @@ class productClass {
     $price_sale = $data['price_sale'];
     $description = $data['description'];
     $content = $data['content'];
+    $status = $data['status'];
+
     $image = $data['image'];
     $images = $data['images'];
     $images_str = implode("*", $images);
     
-    $sql = "INSERT INTO products (name, material, price_normal, price_sale, description, content, image, images)
-    VALUES ('$name ', '$material', '$price_normal', '$price_sale', '$description', '$content', '$image', '$images_str')";
+    $sql = "INSERT INTO products (name, material, price_normal, price_sale, description, content, image, images, status)
+    VALUES ('$name ', '$material', '$price_normal', '$price_sale', '$description', '$content', '$image','$images_str', '$status')";
     $result = $this -> Database -> insert($sql);
     header('location:' . 'product_list.php');
     return $result;
@@ -62,5 +64,17 @@ class productClass {
     $result = $this -> Database -> delete($sql);
     return $result;
   }
-  
+  public function select_product_by_status($status) {
+    $status = intval($status);
+    $query = "SELECT * FROM products";
+    
+    if ($status > 0) {
+        $query .= " WHERE status = $status";
+    }
+    
+    // Add other conditions or ordering here if needed
+    $query .= " ORDER BY id"; // Example ordering
+    
+    return $this->Database->select($query);
+}
 }

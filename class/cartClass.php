@@ -109,5 +109,18 @@ public function get_info_detail($cusId, $cartIds) {
       $result = $this -> dbcart -> select($sql);
       return $result;
     }
-
+    public function update_cart($id, $quantity) {
+      $id = intval($id); // Sanitize ID
+      $quantity = intval($quantity); // Sanitize quantity
+  
+      // Use prepared statements to prevent SQL injection
+      $sql = "UPDATE carts SET quantity = $quantity WHERE id = $id";
+      $result = $this->dbcart->update($sql);
+  
+      if ($result) {
+          return true;
+      } else {
+          return false;
+      }
+  }
 }

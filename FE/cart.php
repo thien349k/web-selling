@@ -18,15 +18,48 @@ $cartIds = $_SESSION['cartIds'];
 
   $get_product_to_cart = $cart -> get_product_to_cart();
 ?>
+<?php
+// Other PHP code...
 
+if (isset($_POST['update'])) {
+    $id = intval($_POST['id']);
+    $quantity = intval($_POST['quantity']);
+    
+    $update_result = $cart->update_cart($id, $quantity);
+    if ($update_result) {
+        header('Location: cart.php');
+        exit(); // Ensure the script stops executing after redirect
+    } else {
+        echo 'Update failed.';
+    }
+}
+
+// Existing code to handle deletion and display...
+?>
 <link rel="stylesheet" href="asset/css/stylepro.css">
-
+<section class="slider">
+        <div class="slide-items">
+            <div class="slide">
+                <img src="asset/logo/BANNER1.png" alt="khong the mo anh">
+            </div>
+            <div class="slide">
+                <img src="asset/logo/BANNER2.png" alt="khong the mo anh">
+            </div>
+            <div class="slide">
+                <img src="asset/logo/BANNER3.png" alt="khong the mo anh">
+            </div>            
+        </div>
+        <div class="slide_arrow">
+            <i class="ri-arrow-left-circle-line"></i>
+            <i class="ri-arrow-right-circle-line"></i>
+        </div>
+    </section>
 <main>
   <section class="product-list">
     <div class="container">
       <div class="row-flex">
         <div class="heading-items">
-          <p class="heading-text">Chi tiết sản phẩm</p>
+          <p class="heading-text">Giỏ hàng</p>
         </div>
         
           
@@ -40,32 +73,32 @@ $cartIds = $_SESSION['cartIds'];
                           <section class="best-seller">
                           
                           <div class="containers ">
-                            <h1>Shopping Cart</h1><br>
+                            <h1></h1><br>
                             <div class="cart">
                   
                             <?php
-        $s=0;
-        if($get_product_to_cart){
-          while ($result = $get_product_to_cart -> fetch_assoc()) {
-            
-        
-      ?>
-                                <div class="cart-item">
-                                  <img src="<?php echo $result['image'];?>" alt="Product Image" class="item-image">
-                                  <div class="item-details">
-                                      <h3><?php echo $result['name'];?></h3>
-                                      <p>Giá: <?php echo $tong = number_format($result['price_sale']*$result['quantity']);?><sup>đ</sup>
-                                      <input type="hidden" value="<?php echo $tong = $result['price_sale']*$result['quantity'];?>">
-                                  </div>
-                                  <div class="item-actions">
-                                      <input type="number" value="<?php echo $result['quantity'];?>" class="item-quantity">
-                                      <a href="?id=<?php echo $result['id'];?>"><button class="remove-btn">Xóa</button></a>
-                                  </div>
-                                </div>
-
-
+                              $total=0;
+                              if($get_product_to_cart){
+                                while ($result = $get_product_to_cart->fetch_assoc()) {
+                                    $price = number_format($result['price_sale']);
+                                    $itemTotal = $result['price_sale'] * $result['quantity'];
+                                    $total += $itemTotal;
+                                ?>
+                                    <div class="cart-item">
+                                        <img src="<?php echo htmlspecialchars($result['image']); ?>" alt="Product Image" class="item-image">
+                                        <div class="item-details">
+                                            <h3><?php echo htmlspecialchars($result['name']); ?></h3>
+                                            <p>Giá: <?php echo $price; ?><sup>đ</sup></p>
+                                        </div>
+                                        <form action="cart.php" method="POST" class="item-actions">
+                                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($result['id']); ?>">
+                                            <input type="number" name="quantity" min="1" value="<?php echo htmlspecialchars($result['quantity']); ?>" class="item-quantity">
+                                            <button type="submit" name="update" class="edit-btn">Sửa</button>
+                                            <a href="?id=<?php echo $result['id']; ?>"><button type="button" class="remove-btn">Xóa</button></a>
+                                        </form>
+                                    </div>
+                               
                             <?php
-                              $s =$s+$tong;
                               }
                             }
                             ?>
@@ -77,7 +110,7 @@ $cartIds = $_SESSION['cartIds'];
                         </div>
                         <div id="pay">
                         <div class="total">
-                              <h2>Tổng: <?php echo number_format($s);?><sup>đ</sup></h2>
+                              <h2>Tổng: <?php echo number_format($total);?><sup>đ</sup></h2>
                           </div> <br>
                         <div style="clear: both;"></div>
                             <?php

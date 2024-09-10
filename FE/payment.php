@@ -19,12 +19,43 @@
 ?>
 <!--  -->
 <link rel="stylesheet" href="asset/css/stylecarts.css" />
+<style>
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .status {
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .available {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .unavailable {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+    </style>
 <main>
     <section class="cart p-to-top">
         <div class="container">
             <div class="row-flex">
                 <div class="cart-items">
-                    <p class="heading-text">Giỏ Hàng</p>
+                    <p class="heading-text"></p>
                 </div>
             </div>
             <form action="" method="POST" enctype="multipart/form-data">

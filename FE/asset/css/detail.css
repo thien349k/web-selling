@@ -18,8 +18,8 @@ main {
 }
 
 #main-image {
-  width: 50%;
-  height: auto;
+  width: 245px;
+  height: 304px;
   border: 1px solid #ccc;
   margin-right: 10px;
 }
@@ -39,7 +39,7 @@ main {
 }
 
 .product-info {
-  width: 45%;
+  width: 80%;
 }
 
 .product-info h1 {
@@ -72,4 +72,5 @@ main {
 
 .add-to-cart:hover {
   background-color: #218838;
-}
+} 
+/* General Styles
